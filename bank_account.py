@@ -19,7 +19,7 @@ class AccountDB:
         for account in self.account_database:
             if account.account_number == account_num:
                 return account
-        return None
+        return Account("eror",'','',0)
     
     def __str__(self):
         s = ''
@@ -35,7 +35,10 @@ class Account:
         self.balance = balance
 
     def deposit(self, amount):
-        self.balance += amount
+        if self.account_name == "eror":
+            return "Eror"
+        else:
+            self.balance += amount
 
     def withdraw(self, amount):
         if self.balance >= amount:
