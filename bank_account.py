@@ -8,7 +8,13 @@ class AccountDB:
             self.account_database.append(account)
         else:
             print(account, "Duplicated account; nothing to be insert")
-    
+    def delete_account(self,num):
+        for ac in self.account_database:
+            if ac.account_number == num:
+                self.account_database.remove(ac)
+        print("invalid account number; nothing to be deleted.")
+            
+        
     def __search_private(self, account_num):
         for i in range(len(self.account_database)):
             if self.account_database[i].account_number == account_num:
@@ -65,4 +71,6 @@ print(my_account_DB)
 my_account_DB.search_public("0003").withdraw(100)
 print(my_account_DB)
 my_account_DB.search_public("0010").deposit(50)
+print(my_account_DB)
+my_account_DB.delete_account("0004")
 print(my_account_DB)
